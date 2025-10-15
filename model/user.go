@@ -1,4 +1,4 @@
-package online_judge_model
+package model
 
 import "time"
 
