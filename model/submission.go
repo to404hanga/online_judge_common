@@ -17,6 +17,10 @@ type Submission struct {
 	UpdatedAt     time.Time           `gorm:"column:updated_at;type:datetime;autoUpdateTime:milli" json:"updated_at"`                                                            // 更新时间
 }
 
+func (Submission) TableName() string {
+	return "submission"
+}
+
 type SubmissionLanguage int8
 
 const (

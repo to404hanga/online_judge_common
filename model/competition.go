@@ -15,6 +15,10 @@ type Competition struct {
 	UpdatedAt time.Time           `gorm:"column:updated_at;type:datetime;autoUpdateTime:milli" json:"updated_at"` // 更新时间
 }
 
+func (Competition) TableName() string {
+	return "competition"
+}
+
 type CompetitionStatus int8
 
 const (

@@ -12,6 +12,10 @@ type ProblemTestcase struct {
 	UpdatedAt time.Time              `gorm:"column:updated_at;type:datetime;autoUpdateTime:milli" json:"updated_at"`                   // 更新时间
 }
 
+func (ProblemTestcase) TableName() string {
+	return "problem_testcase"
+}
+
 type ProblemTestcaseStatus int8
 
 const (

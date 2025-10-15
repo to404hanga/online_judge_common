@@ -13,6 +13,10 @@ type Evaluation struct {
 	UpdatedAt    time.Time                 `gorm:"column:updated_at;type:datetime;default:CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP" json:"updated_at"`      // 更新时间
 }
 
+func (Evaluation) TableName() string {
+	return "evaluation"
+}
+
 type EvaluationAcceptedStatus int8
 
 const (

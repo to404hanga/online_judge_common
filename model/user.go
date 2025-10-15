@@ -13,6 +13,10 @@ type User struct {
 	UpdatedAt time.Time   `gorm:"column:updated_at;type:datetime;autoUpdateTime:milli" json:"updated_at"`   // 更新时间
 }
 
+func (User) TableName() string {
+	return "user"
+}
+
 type UserRole int8
 
 const (

@@ -16,6 +16,10 @@ type Problem struct {
 	UpdatedAt   time.Time       `gorm:"column:updated_at;type:datetime;autoUpdateTime:milli" json:"updated_at"` // 更新时间
 }
 
+func (Problem) TableName() string {
+	return "problem"
+}
+
 type ProblemStatus int8
 
 const (
