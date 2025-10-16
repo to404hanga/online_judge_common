@@ -34,6 +34,19 @@ func (s *CompetitionStatus) Int8() int8 {
 	return int8(*s)
 }
 
+func (s *CompetitionStatus) String() string {
+	switch *s {
+	case CompetitionStatusUnpublished:
+		return "未发布"
+	case CompetitionStatusPublished:
+		return "已发布"
+	case CompetitionStatusDeleted:
+		return "已删除"
+	default:
+		return "未知状态"
+	}
+}
+
 type CompetitionVisible int8
 
 const (
@@ -46,4 +59,15 @@ func (v *CompetitionVisible) Int8() int8 {
 		return int8(CompetitionVisibleFalse)
 	}
 	return int8(*v)
+}
+
+func (v *CompetitionVisible) String() string {
+	switch *v {
+	case CompetitionVisibleFalse:
+		return "不可见"
+	case CompetitionVisibleTrue:
+		return "可见"
+	default:
+		return "未知可见性"
+	}
 }

@@ -35,6 +35,19 @@ func (s *ProblemStatus) Int8() int8 {
 	return int8(*s)
 }
 
+func (s *ProblemStatus) String() string {
+	switch *s {
+	case ProblemStatusUnpublished:
+		return "未发布"
+	case ProblemStatusPublished:
+		return "已发布"
+	case ProblemStatusDeleted:
+		return "已删除"
+	default:
+		return "未知状态"
+	}
+}
+
 type ProblemVisible int8
 
 const (
@@ -47,4 +60,15 @@ func (v *ProblemVisible) Int8() int8 {
 		return int8(ProblemVisibleFalse)
 	}
 	return int8(*v)
+}
+
+func (v *ProblemVisible) String() string {
+	switch *v {
+	case ProblemVisibleFalse:
+		return "不可见"
+	case ProblemVisibleTrue:
+		return "可见"
+	default:
+		return "未知可见性"
+	}
 }

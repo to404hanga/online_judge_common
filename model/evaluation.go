@@ -25,9 +25,22 @@ const (
 	EvaluationAcceptedStatusUnaccepted                                 // 未通过
 )
 
-func (e *EvaluationAcceptedStatus) Int() int8 {
+func (e *EvaluationAcceptedStatus) Int8() int8 {
 	if e == nil {
 		return int8(EvaluationAcceptedStatusUnjudged)
 	}
 	return int8(*e)
+}
+
+func (e *EvaluationAcceptedStatus) String() string {
+	switch *e {
+	case EvaluationAcceptedStatusUnjudged:
+		return "未判题"
+	case EvaluationAcceptedStatusAccepted:
+		return "已通过"
+	case EvaluationAcceptedStatusUnaccepted:
+		return "未通过"
+	default:
+		return "未知状态"
+	}
 }

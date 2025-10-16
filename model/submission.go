@@ -37,6 +37,21 @@ func (l *SubmissionLanguage) Int8() int8 {
 	return int8(*l)
 }
 
+func (l *SubmissionLanguage) String() string {
+	switch *l {
+	case SubmissionLanguageCOrCpp:
+		return "C/C++"
+	case SubmissionLanguagePython:
+		return "Python"
+	case SubmissionLanguageJava:
+		return "Java"
+	case SubmissionLanguageGo:
+		return "Go"
+	default:
+		return "未知语言"
+	}
+}
+
 type SubmissionStatus int8
 
 const (

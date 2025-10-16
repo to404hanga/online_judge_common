@@ -28,3 +28,14 @@ func (s *CompetitionProblemStatus) Int8() int8 {
 	}
 	return int8(*s)
 }
+
+func (s *CompetitionProblemStatus) String() string {
+	switch *s {
+	case CompetitionProblemStatusDisabled:
+		return "禁用"
+	case CompetitionProblemStatusEnabled:
+		return "启用"
+	default:
+		return "未知状态"
+	}
+}

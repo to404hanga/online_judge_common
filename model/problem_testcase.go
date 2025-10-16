@@ -29,3 +29,14 @@ func (s *ProblemTestcaseStatus) Int8() int8 {
 	}
 	return int8(*s)
 }
+
+func (s *ProblemTestcaseStatus) String() string {
+	switch *s {
+	case ProblemTestcaseStatusDisabled:
+		return "禁用"
+	case ProblemTestcaseStatusEnabled:
+		return "启用"
+	default:
+		return "未知状态"
+	}
+}

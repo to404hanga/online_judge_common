@@ -31,6 +31,17 @@ func (r *UserRole) Int8() int8 {
 	return int8(*r)
 }
 
+func (r *UserRole) String() string {
+	switch *r {
+	case UserRoleNormal:
+		return "普通用户"
+	case UserRoleAdmin:
+		return "管理员"
+	default:
+		return "未知角色"
+	}
+}
+
 type UserStatus int8
 
 const (
@@ -43,4 +54,15 @@ func (s *UserStatus) Int8() int8 {
 		return int8(UserStatusNormal)
 	}
 	return int8(*s)
+}
+
+func (s *UserStatus) String() string {
+	switch *s {
+	case UserStatusNormal:
+		return "正常"
+	case UserStatusDisabled:
+		return "禁用"
+	default:
+		return "未知状态"
+	}
 }
