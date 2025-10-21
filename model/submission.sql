@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS submission (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '提交 ID',
     competition_id BIGINT UNSIGNED NOT NULL COMMENT '比赛 ID',
     user_id BIGINT UNSIGNED NOT NULL COMMENT '用户 ID',
-    problem_id BIGINT UNSIGNED NOT NULL COMMENT '题目 ID',
+    problem_code VARCHAR(50) NOT NULL COMMENT '题目编号',
     code_url VARCHAR(255) NOT NULL COMMENT '提交代码 URL',
     language TINYINT NOT NULL COMMENT '提交语言 ( 0: C/C++, 1: Python, 2: Java, 3: Go )',
     status TINYINT NOT NULL DEFAULT 0 COMMENT '提交状态 ( 0: 待判题, 1: 判题中, 2: 已判题 )',
@@ -13,5 +13,5 @@ CREATE TABLE IF NOT EXISTS submission (
     updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
 
     PRIMARY KEY (id),
-    UNIQUE KEY competition_user_problem_code_languge (competition_id, user_id, problem_id, code_url, language)
+    UNIQUE INDEX competition_user_problem_code_languge (competition_id, user_id, problem_code, code_url, language)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='提交表';

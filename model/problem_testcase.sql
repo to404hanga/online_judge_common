@@ -1,12 +1,12 @@
-CREATE TABLE IF NOT EXISTS problem_testcase (
-    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '测试用例 ID',
-    problem_id BIGINT UNSIGNED NOT NULL COMMENT '题目 ID',
-    input_url VARCHAR(255) NOT NULL COMMENT '输入用例 URL',
-    output_url VARCHAR(255) NOT NULL COMMENT '输出用例 URL',
-    status TINYINT NOT NULL DEFAULT 1 COMMENT '测试用例状态 ( 0: 禁用, 1: 启用 )',
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+-- CREATE TABLE IF NOT EXISTS problem_testcase (
+--     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '测试用例 ID',
+--     problem_code VARCHAR(50) NOT NULL COMMENT '题目编号',
+--     input_url VARCHAR(255) NOT NULL COMMENT '输入用例 URL',
+--     output_url VARCHAR(255) NOT NULL COMMENT '输出用例 URL',
+--     status TINYINT NOT NULL DEFAULT 1 COMMENT '测试用例状态 ( 0: 禁用, 1: 启用 )',
+--     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+--     updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     
-    PRIMARY KEY (id),
-    UNIQUE INDEX uk_problem_testcase (problem_id, input_url, output_url)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='题目测试用例表';
+--     PRIMARY KEY (id),
+--     UNIQUE INDEX uk_problem_testcase (problem_code, input_url, output_url)
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='题目测试用例表';
