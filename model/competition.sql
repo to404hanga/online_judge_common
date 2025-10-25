@@ -4,7 +4,6 @@ CREATE TABLE IF NOT EXISTS competition (
     start_time DATETIME NOT NULL COMMENT '比赛开始时间',
     end_time DATETIME NOT NULL COMMENT '比赛结束时间',
     status TINYINT NOT NULL DEFAULT 0 COMMENT '比赛状态(0:未发布, 1:已发布, 2:已删除)',
-    visible TINYINT NOT NULL DEFAULT 0 COMMENT '是否仅比赛时可见(0:否, 1:是)',
     creator_id BIGINT UNSIGNED NOT NULL COMMENT '创建者 ID',
     updater_id BIGINT UNSIGNED NOT NULL COMMENT '更新者 ID',
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
