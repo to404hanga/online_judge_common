@@ -1,6 +1,5 @@
 CREATE TABLE IF NOT EXISTS problem (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '题目 ID',
-    code VARCHAR(50) NOT NULL COMMENT '题目编号',
     title VARCHAR(255) NOT NULL COMMENT '题目标题',
     description_url VARCHAR(255) NOT NULL COMMENT '题目 url',
     testcase_zip_url VARCHAR(255) NOT NULL COMMENT '测试用例 zip 文件 url',
@@ -14,7 +13,6 @@ CREATE TABLE IF NOT EXISTS problem (
     updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     
     PRIMARY KEY (id),
-    UNIQUE INDEX uk_code (code),
     UNIQUE INDEX uk_description_url (description_url),
     UNIQUE INDEX uk_testcase_zip_url (testcase_zip_url)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='题目表';

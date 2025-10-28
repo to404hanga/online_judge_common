@@ -24,7 +24,8 @@ func (Submission) TableName() string {
 type SubmissionLanguage int8
 
 const (
-	SubmissionLanguageCOrCpp SubmissionLanguage = iota // C/C++
+	SubmissionLanguageC      SubmissionLanguage = iota // C/C++
+	SubmissionLanguageCPP                              // C++
 	SubmissionLanguagePython                           // Python
 	SubmissionLanguageJava                             // Java
 	SubmissionLanguageGo                               // Go
@@ -32,15 +33,17 @@ const (
 
 func (l *SubmissionLanguage) Int8() int8 {
 	if l == nil {
-		return int8(SubmissionLanguageCOrCpp)
+		return int8(SubmissionLanguageC)
 	}
 	return int8(*l)
 }
 
 func (l *SubmissionLanguage) String() string {
 	switch *l {
-	case SubmissionLanguageCOrCpp:
+	case SubmissionLanguageC:
 		return "C/C++"
+	case SubmissionLanguageCPP:
+		return "C++"
 	case SubmissionLanguagePython:
 		return "Python"
 	case SubmissionLanguageJava:

@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS submission (
     user_id BIGINT UNSIGNED NOT NULL COMMENT '用户 ID',
     problem_code VARCHAR(50) NOT NULL COMMENT '题目编号',
     code_url VARCHAR(255) NOT NULL COMMENT '提交代码 URL',
-    language TINYINT NOT NULL COMMENT '提交语言 ( 0: C/C++, 1: Python, 2: Java, 3: Go )',
+    language TINYINT NOT NULL COMMENT '提交语言 ( 0: C, 1: C++, 2: Python, 3: Java, 4: Go )',
     status TINYINT NOT NULL DEFAULT 0 COMMENT '提交状态 ( 0: 待判题, 1: 判题中, 2: 已判题 )',
     result TINYINT NOT NULL DEFAULT 0 COMMENT '判题结果 ( 0: 未判题, 1: Accepted, 2: Wrong Answer, 3: Compile Error, 4: Runtime Error, 5: Time Limit Exceeded, 6: Memory Limit Exceeded, 7: Output Limit Exceeded )',
     time_used INT NOT NULL DEFAULT -1 COMMENT '最大运行时间 ( 单位: 毫秒, -1 表示未判题 )',
