@@ -7,5 +7,7 @@ CREATE TABLE IF NOT EXISTS competition_user (
     pass_count INT NOT NULL DEFAULT 0 COMMENT '通过题目数',
 
     PRIMARY KEY (id),
-    UNIQUE INDEX uk_competition_user_id (competition_id, user_id)
-)
+    UNIQUE INDEX uk_competition_user_id (competition_id, user_id),
+    INDEX idx_total_time (total_time),
+    INDEX idx_pass_count (pass_count)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='比赛用户表';

@@ -10,7 +10,7 @@ type Problem struct {
 	Status         *ProblemStatus  `gorm:"column:status;type:tinyint" json:"status"`                                                          // 题目状态(0:未发布, 1:已发布, 2:已删除)
 	Visible        *ProblemVisible `gorm:"column:visible;type:tinyint" json:"visible"`                                                        // 题目可见性(0:不可见, 1:可见)
 	TimeLimit      int             `gorm:"column:time_limit;type:int" json:"time_limit"`                                                      // 题目时间限制(单位:毫秒)
-	MemoryLimit    int             `gorm:"column:memory_limit;type:int" json:"memory_limit"`                                                  // 题目内存限制(单位:KB)
+	MemoryLimit    int             `gorm:"column:memory_limit;type:int" json:"memory_limit"`                                                  // 题目内存限制(单位:MB)
 	CreatorID      uint64          `gorm:"column:creator_id;type:bigint unsigned" json:"creator_id"`                                          // 题目创建者 ID
 	UpdaterID      uint64          `gorm:"column:updater_id;type:bigint unsigned" json:"updater_id"`                                          // 题目更新者 ID
 	CreatedAt      time.Time       `gorm:"column:created_at;type:datetime;autoCreateTime:milli" json:"created_at"`                            // 创建时间
