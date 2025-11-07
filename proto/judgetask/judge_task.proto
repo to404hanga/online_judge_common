@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+//go:generate protoc --go_out=../.. --go-grpc_out=../.. *.proto
+package judgetask;
+option go_package = "proto/gen/judgetask";
+
+message JudgeTask {
+    uint64 submissionId = 1;
+    uint64 problemId = 2;
+    string code = 3;
+    int32 language = 4;
+    int32 time_limit = 5;
+    int32 memory_limit = 6;
+}
