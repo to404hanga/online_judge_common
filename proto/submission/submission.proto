@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+//go:generate protoc --go_out=../.. --go-grpc_out=../.. *.proto
+package submission;
+option go_package = "proto/gen/submission";
+
+message Submission {
+    uint64 submissionId = 1;
+}
