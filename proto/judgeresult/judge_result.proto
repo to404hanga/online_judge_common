@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+//go:generate protoc --go_out=../.. --go-grpc_out=../.. *.proto
+package judgeresult;
+option go_package = "proto/gen/judgeresult";
+
+message JudgeResult {
+    uint64 submissionId = 1;
+    uint32 result = 2;
+    int64 timeUsed = 3;
+    int64 memoryUsed = 4;
+    optional string stderr = 5;
+}

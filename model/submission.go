@@ -9,6 +9,7 @@ type Submission struct {
 	ProblemID     uint64              `gorm:"column:problem_id;type:bigint unsigned;uniqueIndex:uk_submission_competition_problem_user_code_language" json:"problem_id"`         // 题目 ID
 	Code          string              `gorm:"column:code;type:text" json:"code"`                                                                                                 // 提交代码
 	CodeHash      string              `gorm:"column:code_hash;type:varchar(255);uniqueIndex:uk_submission_competition_problem_user_code_language" json:"code_hash"`              // 提交代码哈希值
+	Stderr        *string             `gorm:"column:stderr;type:text" json:"stderr"`                                                                                             // 标准错误输出
 	Language      *SubmissionLanguage `gorm:"column:language;type:tinyint;uniqueIndex:uk_submission_competition_problem_user_code_language" json:"language"`                     // 提交语言 ( 0: C/C++, 1: Python, 2: Java, 3: Go )
 	Status        *SubmissionStatus   `gorm:"column:status;type:tinyint" json:"status"`                                                                                          // 提交状态 ( 0: 待判题, 1: 判题中, 2: 已判题 )
 	Result        *SubmissionResult   `gorm:"column:result;type:tinyint" json:"result"`                                                                                          // 判题结果 ( 0: 未判题, 1: Accepted, 2: Wrong Answer, 3: Compile Error, 4: Runtime Error, 5: Time Limit Exceeded, 6: Memory Limit Exceeded, 7: Output Limit Exceeded )

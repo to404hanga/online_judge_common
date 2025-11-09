@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS submission (
     problem_id BIGINT UNSIGNED NOT NULL COMMENT '题目 ID',
     code TEXT NOT NULL COMMENT '提交代码',
     code_hash VARCHAR(255) NOT NULL COMMENT '提交代码哈希值',
+    stderr TEXT COMMENT '标准错误输出',
     language TINYINT NOT NULL COMMENT '提交语言 ( 0: C, 1: C++, 2: Python, 3: Java, 4: Go )',
     status TINYINT NOT NULL DEFAULT 0 COMMENT '提交状态 ( 0: 待判题, 1: 判题中, 2: 已判题 )',
     result TINYINT NOT NULL DEFAULT 0 COMMENT '判题结果 ( 0: 未判题, 1: Accepted, 2: Wrong Answer, 3: Compile Error, 4: Runtime Error, 5: Time Limit Exceeded, 6: Memory Limit Exceeded, 7: Output Limit Exceeded )',
