@@ -7,7 +7,7 @@ type Problem struct {
 	Title       string          `gorm:"column:title;type:varchar(255)" json:"title"`                            // 题目标题
 	Description string          `gorm:"column:description;type:text" json:"description"`                        // 题目描述
 	Status      *ProblemStatus  `gorm:"column:status;type:tinyint" json:"status"`                               // 题目状态(0:未发布, 1:已发布, 2:已删除)
-	Visible     *ProblemVisible `gorm:"column:visible;type:tinyint" json:"visible"`                             // 题目可见性(0:不可见, 1:可见)
+	Visible     *ProblemVisible `gorm:"column:visible;type:tinyint" json:"visible"`                             // 非比赛时是否可见(0:不可见, 1:可见)
 	TimeLimit   int             `gorm:"column:time_limit;type:int" json:"time_limit"`                           // 题目时间限制(单位:毫秒)
 	MemoryLimit int             `gorm:"column:memory_limit;type:int" json:"memory_limit"`                       // 题目内存限制(单位:MB)
 	CreatorID   uint64          `gorm:"column:creator_id;type:bigint unsigned" json:"creator_id"`               // 题目创建者 ID

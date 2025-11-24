@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS problem (
     title VARCHAR(255) NOT NULL COMMENT '题目标题',
     description TEXT NOT NULL COMMENT '题目描述',
     status TINYINT NOT NULL DEFAULT 0 COMMENT '题目状态(0:未发布, 1:已发布, 2:已删除)',
-    visible TINYINT NOT NULL DEFAULT 0 COMMENT '是否仅比赛时可见(0:否, 1:是)',
+    visible TINYINT NOT NULL DEFAULT 0 COMMENT '非比赛时是否可见(0:否, 1:是)',
     time_limit INT NOT NULL DEFAULT -1 COMMENT '时间限制(单位:毫秒)',
     memory_limit INT NOT NULL DEFAULT -1 COMMENT '内存限制(单位:MB)',
     creator_id BIGINT UNSIGNED NOT NULL COMMENT '创建者 ID',
