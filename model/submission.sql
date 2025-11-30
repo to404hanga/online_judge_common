@@ -14,6 +14,6 @@ CREATE TABLE IF NOT EXISTS submission (
     updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
 
     PRIMARY KEY (id),
-    UNIQUE INDEX uk_competition_user_problem_id_code_languge (competition_id, user_id, problem_id, code_hash, language),
+    INDEX idx_competition_id_user_id_problem_id (competition_id, user_id, problem_id ASC),
     INDEX idx_created_at (created_at ASC)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='提交表';
