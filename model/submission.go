@@ -8,7 +8,6 @@ type Submission struct {
 	UserID        uint64              `gorm:"column:user_id;type:bigint unsigned;uniqueIndex:uk_submission_competition_problem_user_code_language" json:"user_id"`               // 用户 ID
 	ProblemID     uint64              `gorm:"column:problem_id;type:bigint unsigned;uniqueIndex:uk_submission_competition_problem_user_code_language" json:"problem_id"`         // 题目 ID
 	Code          string              `gorm:"column:code;type:text" json:"code"`                                                                                                 // 提交代码
-	CodeHash      string              `gorm:"column:code_hash;type:varchar(255);uniqueIndex:uk_submission_competition_problem_user_code_language" json:"code_hash"`              // 提交代码哈希值
 	Stderr        *string             `gorm:"column:stderr;type:text" json:"stderr"`                                                                                             // 标准错误输出
 	Language      *SubmissionLanguage `gorm:"column:language;type:tinyint;uniqueIndex:uk_submission_competition_problem_user_code_language" json:"language"`                     // 提交语言 ( 0: C/C++, 1: Python, 2: Java, 3: Go )
 	Status        *SubmissionStatus   `gorm:"column:status;type:tinyint" json:"status"`                                                                                          // 提交状态 ( 0: 待判题, 1: 判题中, 2: 已判题 )

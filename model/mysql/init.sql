@@ -15,18 +15,12 @@ CREATE TABLE IF NOT EXISTS user (
     UNIQUE KEY uk_username (username)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户表';
 
-INSERT INTO user (username, realname, password, role, status)
-VALUES
-    ('admin1234567890123', 'to404hanga', '$2a$10$AAIzgJi/SZjPKOdJ2hliF./nzymKYUHaAlqbl0ugRy72m4cF2n1Pi', 1, 0), -- 密码 123456
-    ('1234567890123', 'to404hanga', '$2a$10$AAIzgJi/SZjPKOdJ2hliF./nzymKYUHaAlqbl0ugRy72m4cF2n1Pi', 0, 0); -- 密码 123456
-
 CREATE TABLE IF NOT EXISTS submission (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '提交 ID',
     competition_id BIGINT UNSIGNED NOT NULL COMMENT '比赛 ID',
     user_id BIGINT UNSIGNED NOT NULL COMMENT '用户 ID',
     problem_id BIGINT UNSIGNED NOT NULL COMMENT '题目 ID',
     code TEXT NOT NULL COMMENT '提交代码',
-    code_hash VARCHAR(255) NOT NULL COMMENT '提交代码哈希值',
     stderr TEXT COMMENT '标准错误输出',
     language TINYINT NOT NULL COMMENT '提交语言 ( 0: C, 1: C++, 2: Python, 3: Java, 4: Go )',
     status TINYINT NOT NULL DEFAULT 0 COMMENT '提交状态 ( 0: 待判题, 1: 判题中, 2: 已判题 )',
@@ -100,3 +94,26 @@ CREATE TABLE IF NOT EXISTS competition_problem (
     PRIMARY KEY (id),
     UNIQUE uk_competition_problem (competition_id, problem_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='比赛题目表';
+
+--- 分割线
+
+INSERT INTO user (username, realname, password, role, status)
+VALUES
+    ('admin1234567890123', 'to404hanga', '$2a$10$AAIzgJi/SZjPKOdJ2hliF./nzymKYUHaAlqbl0ugRy72m4cF2n1Pi', 1, 0), -- 密码 123456
+    ('1234567890123', 'to404hanga', '$2a$10$AAIzgJi/SZjPKOdJ2hliF./nzymKYUHaAlqbl0ugRy72m4cF2n1Pi', 0, 0); -- 密码 123456
+
+INSERT INTO competition (name, start_time, end_time, status, creator_id, updater_id)
+VALUES 
+    ('长时测试比赛', '2025-11-30 14:00:00', '2026-06-30 17:00:00', 0, 1, 1);
+
+INSERT INTO problem (title, description, status, visible, time_limit, memory_limit, creator_id, updater_id) 
+VALUES
+    ('长时测试题目1', '这是一个长时测试题目', 1, 1, 200, 128, 1, 1);
+
+INSERT INTO competition_problem (competition_id, problem_id, problem_title, status)
+VALUES
+    (1, 1, '长时测试题目1', 1);
+
+INSERT INTO competition_user (competition_id, user_id, username, realname, status)
+VALUES
+    (1, 2, '1234567890123', 'to404hanga', 0);
