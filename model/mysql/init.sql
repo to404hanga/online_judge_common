@@ -77,6 +77,7 @@ CREATE TABLE IF NOT EXISTS competition_user (
     pass_count INT NOT NULL DEFAULT 0 COMMENT '通过题目数',
     total_time BIGINT NOT NULL DEFAULT 0 COMMENT '总耗时 ( 单位: 毫秒 )',
     retry_count INT NOT NULL DEFAULT 0 COMMENT '重试次数',
+    start_time DATETIME NOT NULL COMMENT '比赛开始时间',
 
     PRIMARY KEY (id),
     UNIQUE INDEX uk_competition_user_id (competition_id, user_id),
@@ -115,6 +116,6 @@ INSERT INTO competition_problem (competition_id, problem_id, problem_title, stat
 VALUES
     (1, 1, '长时测试题目1', 1);
 
-INSERT INTO competition_user (competition_id, user_id, username, realname, status)
+INSERT INTO competition_user (competition_id, user_id, username, realname, status, start_time)
 VALUES
-    (1, 2, '1234567890123', 'to404hanga', 0);
+    (1, 2, '1234567890123', 'to404hanga', 0, '2025-11-30 14:00:00');
