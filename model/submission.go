@@ -14,8 +14,8 @@ type Submission struct {
 	Result        *SubmissionResult   `gorm:"column:result;type:tinyint" json:"result"`                                                                                          // 判题结果 ( 0: 未判题, 1: Accepted, 2: Wrong Answer, 3: Compile Error, 4: Runtime Error, 5: Time Limit Exceeded, 6: Memory Limit Exceeded, 7: Output Limit Exceeded )
 	TimeUsed      *int                `gorm:"column:time_used;type:int" json:"time_used"`                                                                                        // 判题时间 ( 单位: 毫秒 )
 	MemoryUsed    *int                `gorm:"column:memory_used;type:int" json:"memory_used"`                                                                                    // 判题内存 ( 单位: KB )
-	CreatedAt     time.Time           `gorm:"column:created_at;type:datetime;autoCreateTime:milli" json:"created_at"`                                                            // 创建时间
-	UpdatedAt     time.Time           `gorm:"column:updated_at;type:datetime;autoUpdateTime:milli" json:"updated_at"`                                                            // 更新时间
+	CreatedAt     time.Time           `gorm:"column:created_at;type:datetime(3);autoCreateTime:milli" json:"created_at"`                                                         // 创建时间
+	UpdatedAt     time.Time           `gorm:"column:updated_at;type:datetime(3);autoUpdateTime:milli" json:"updated_at"`                                                         // 更新时间
 }
 
 func (Submission) TableName() string {

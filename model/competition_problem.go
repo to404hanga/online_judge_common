@@ -8,8 +8,8 @@ type CompetitionProblem struct {
 	ProblemID     uint64                    `gorm:"column:problem_id;type:bigint unsigned;uniqueIndex:uk_competition_problem" json:"problem_id"`         // 题目 ID
 	ProblemTitle  string                    `gorm:"column:problem_title;type:varchar(255)" json:"problem_title"`                                         // 题目标题
 	Status        *CompetitionProblemStatus `gorm:"column:status;type:tinyint" json:"status"`                                                            // 比赛题目状态 ( 0: 禁用, 1: 启用 )
-	CreatedAt     time.Time                 `gorm:"column:created_at;type:datetime;autoCreateTime:milli" json:"created_at"`                              // 创建时间
-	UpdatedAt     time.Time                 `gorm:"column:updated_at;type:datetime;autoUpdateTime:milli" json:"updated_at"`                              // 更新时间
+	CreatedAt     time.Time                 `gorm:"column:created_at;type:datetime(3);autoCreateTime:milli" json:"created_at"`                           // 创建时间
+	UpdatedAt     time.Time                 `gorm:"column:updated_at;type:datetime(3);autoUpdateTime:milli" json:"updated_at"`                           // 更新时间
 }
 
 func (CompetitionProblem) TableName() string {

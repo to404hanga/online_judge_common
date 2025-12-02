@@ -12,7 +12,7 @@ type CompetitionUser struct {
 	PassCount     int                    `gorm:"column:pass_count;type:int;not null;default:0;index:idx_ranking,priority:2,sort:desc" json:"pass_count"`                                             // 通过题目数
 	TotalTime     int64                  `gorm:"column:total_time;type:bigint;not null;default:0;index:idx_ranking,priority:3,sort:asc" json:"total_time"`                                           // 总耗时 ( 单位: 毫秒 )
 	RetryCount    int                    `gorm:"column:retry_count;type:int;not null;default:0" json:"retry_count"`                                                                                  // 重试次数
-	StartTime     time.Time              `gorm:"column:start_time;type:datetime;not null" json:"start_time"`                                                                                         // 比赛开始时间
+	StartTime     time.Time              `gorm:"column:start_time;type:datetime(3);not null" json:"start_time"`                                                                                      // 比赛开始时间
 }
 
 type CompetitionUserStatus int8

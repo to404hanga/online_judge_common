@@ -3,14 +3,14 @@ package model
 import "time"
 
 type User struct {
-	ID        uint64      `gorm:"column:id;type:bigint unsigned;primaryKey" json:"id"`                      // 用户 ID
-	Username  string      `gorm:"column:username;type:varchar(50);uniqueIndex:uk_username" json:"username"` // 用户名(学号)
-	Realname  string      `gorm:"column:realname;type:varchar(50)" json:"realname"`                         // 真实姓名
-	Password  string      `gorm:"column:password;type:varchar(255)" json:"-"`                               // 密码, 不参与序列化
-	Role      *UserRole   `gorm:"column:role;type:tinyint" json:"role"`                                     // 角色(0:普通用户,1:管理员)
-	Status    *UserStatus `gorm:"column:status;type:tinyint" json:"status"`                                 // 状态(0:正常,1:禁用)
-	CreatedAt time.Time   `gorm:"column:created_at;type:datetime;autoCreateTime:milli" json:"created_at"`   // 创建时间
-	UpdatedAt time.Time   `gorm:"column:updated_at;type:datetime;autoUpdateTime:milli" json:"updated_at"`   // 更新时间
+	ID        uint64      `gorm:"column:id;type:bigint unsigned;primaryKey" json:"id"`                       // 用户 ID
+	Username  string      `gorm:"column:username;type:varchar(50);uniqueIndex:uk_username" json:"username"`  // 用户名(学号)
+	Realname  string      `gorm:"column:realname;type:varchar(50)" json:"realname"`                          // 真实姓名
+	Password  string      `gorm:"column:password;type:varchar(255)" json:"-"`                                // 密码, 不参与序列化
+	Role      *UserRole   `gorm:"column:role;type:tinyint" json:"role"`                                      // 角色(0:普通用户,1:管理员)
+	Status    *UserStatus `gorm:"column:status;type:tinyint" json:"status"`                                  // 状态(0:正常,1:禁用)
+	CreatedAt time.Time   `gorm:"column:created_at;type:datetime(3);autoCreateTime:milli" json:"created_at"` // 创建时间
+	UpdatedAt time.Time   `gorm:"column:updated_at;type:datetime(3);autoUpdateTime:milli" json:"updated_at"` // 更新时间
 }
 
 func (User) TableName() string {

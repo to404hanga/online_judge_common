@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS competition_user (
     pass_count INT NOT NULL DEFAULT 0 COMMENT '通过题目数',
     total_time BIGINT NOT NULL DEFAULT 0 COMMENT '总耗时 ( 单位: 毫秒 )',
     retry_count INT NOT NULL DEFAULT 0 COMMENT '重试次数',
-    start_time DATETIME NOT NULL COMMENT '比赛开始时间',
+    start_time DATETIME(3) NOT NULL COMMENT '比赛开始时间',
 
     PRIMARY KEY (id),
     UNIQUE INDEX uk_competition_user_id (competition_id, user_id),
