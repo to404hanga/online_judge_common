@@ -2,6 +2,8 @@ CREATE DATABASE IF NOT EXISTS online_judge;
 
 USE online_judge;
 
+SET NAMES utf8mb4;
+
 CREATE TABLE IF NOT EXISTS user (
     id bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '用户ID',
     username varchar(50) NOT NULL COMMENT '用户名(学号)',
